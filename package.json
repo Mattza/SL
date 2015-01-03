@@ -18,7 +18,6 @@
         "grunt-contrib-htmlmin": "~0.2",
         "grunt-contrib-less": "~0.11",
         "grunt-contrib-watch": "~0.6"
-
     }
 
 }

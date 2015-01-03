@@ -13,5 +13,4 @@ var komFramISLApp = angular
 .controller('SearchCtrl', function SearchCtrl() {
     var search = this;
     search.taco = 'taco';
-
 });
