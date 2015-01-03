@@ -1,0 +1,24 @@
+<div ng-repeat="trip in result.result.TripList.Trip" class="trip">
+
+    <div>
+        <h3>
+                {{trip.StartTime}} - {{trip.ArrivalTime}}    
+                ({{trip.dur}} min)
+            </h3>
+
+        <p>
+            <div ng-repeat="leg in trip.LegList.Leg">
+                <span ng-if="!leg.samePlace">
+                   <span class="trafic-icon {{leg|legToIconClass}}"></span> {{leg.Origin.name}} ->
+                </span>
+            </div>
+            <div>
+                {{trip.LegList.Leg[trip.LegList.Leg.length-1].Destination.name}}
+            </div>
+        </p>
+    </div>
+</div>
+
+
+
+
