@@ -11,7 +11,7 @@ namespace SLAppi.Controllers
     public class SLController : ApiController
     {
 
-        public string Get(string origin, string destination)
+        public object Get(string origin, string destination)
         {
             var url = @"http://api.sl.se/api2/TravelplannerV2/trip.json?key=6a517447db2c4a72adc256399cef82ad&originId={0}&destId={1}";
             url = string.Format(url, origin, destination);
