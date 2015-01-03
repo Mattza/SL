@@ -48,35 +48,37 @@
     <header>
         <div layout="column">
             <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <a ui-sref="index">SLappis</a>
-                    <span flex></span>
-                    <md-button>
-                    </md-button>
-                </div>
-            </md-toolbar>
+            <div class="md-toolbar-tools">
+                <a ui-sref="index">SLappis</a>
+                <span flex></span>
+                <md-button>
+            </md-button>
         </div>
-    </header>
-    <div layout="row">
-        <div flex="10" hide-sm>
-        </div>
-        <div flex>
-            <div ui-view></div>
-            <footer>
-                <a ui-sref="index">Sök</a> 
-                <a ui-sref="index">Realtid</a> 
-                <a ui-sref="index">Störningar</a> 
-            </footer>
-        </div>
-        <div flex="10" hide-sm></div>
+    </md-toolbar>
+</div>
+</header>
+<md-content>
+<div layout="row">
+    <div flex="10" hide-sm>
     </div>
-
-
-    <div ng-include="app/scopes/Search.html">
-
+    <div flex>
+        <div ui-view></div>
+        <footer>
+            <a ui-sref="index">Sök</a> 
+            <a ui-sref="index">Realtid</a> 
+            <a ui-sref="index">Störningar</a> 
+        </footer>
     </div>
+    <div flex="10" hide-sm></div>
+</div>
 
-    <!--     ng-controller="SearchCtrl"-->
+
+<div ng-include="app/scopes/Search.html">
+
+</md-content>
+
+
+<!--     ng-controller="SearchCtrl"-->
 </body>
 
 </html>

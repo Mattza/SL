@@ -1,5 +1,12 @@
-<ul>
-    <li ng-repeat="hist in history.history">
-        {{hist.from}} --> {{hist.to}}
-    </li>
-</ul>
+<md-list>
+	<md-item ng-repeat="trip in history.history">
+		<md-item-content>
+		<div class="md-tile-content">
+			<h3>
+				{{trip.from}} --> {{trip.to}}
+			</h3>
+		</div>
+		</md-item-content>
+		<md-divider ng-if="!$last" class="divider"></md-divider>
+	</md-item>
+</md-list>
