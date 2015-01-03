@@ -12,9 +12,4 @@ var komFramISLApp = angular
         controller: 'ResultCtrl as result',
         templateUrl: 'app/scopes/Result.html',
     });
-})
-
-.controller('SearchCtrl', function SearchCtrl() {
-    var search = this;
-    search.taco = 'taco';
 });

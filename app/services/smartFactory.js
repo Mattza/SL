@@ -26,7 +26,8 @@ komFramISLApp.factory('smartFactory', function smartFactory() {
 
 
     return {
-        station: test,
+        stationFrom: test,
+        stationTo: test,
         history: test1,
     }
 });
