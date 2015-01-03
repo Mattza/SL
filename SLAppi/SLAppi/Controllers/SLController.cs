@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace SLAppi.Controllers
 {
@@ -18,7 +19,8 @@ namespace SLAppi.Controllers
             var request = (HttpWebRequest) WebRequest.Create(url);
             var response = (HttpWebResponse ) request.GetResponse();
             var text = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            return text;
+            var obj = JsonConvert.DeserializeObject(text);
+            return obj;
         }
     }
 }
