@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,31 +10,15 @@ namespace SLAppi.Controllers
 {
     public class SLController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET api/values/5
-        public string Get(int id)
+        public string Get(string origin, string destination)
         {
-            return "value";
-        }
-
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            var url = @"http://api.sl.se/api2/TravelplannerV2/trip.json?key=6a517447db2c4a72adc256399cef82ad&originId={0}&destId={1}";
+            url = string.Format(url, origin, destination);
+            var request = (HttpWebRequest) WebRequest.Create(url);
+            var response = (HttpWebResponse ) request.GetResponse();
+            var text = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            return text;
         }
     }
 }
