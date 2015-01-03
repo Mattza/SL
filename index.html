@@ -1,70 +1,81 @@
 <html ng-app="komFramISLApp">
 
 <head>
-	<title>KomFramISL</title>
+    <title>KomFramISL</title>
 
 
-	<link rel="stylesheet/less" type="text/css" href="app/styles/app.less" />
-	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
+    <link rel="stylesheet/less" type="text/css" href="app/styles/app.less" />
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
 
-	<script src="libs/bower/less/dist/less.min.js"></script>
-	<script src="libs/bower/angular/angular.js"></script>
-	<script src="libs/bower/lodash/dist/lodash.js"></script>
-	<script src="libs/bower/ngstorage/ngStorage.js"></script>
-	<script src="libs/bower/angular-ui-router/release/angular-ui-router.js"></script>
-	<script src="app/app.js"></script>
-	<script src="app/services/smartFactory.js"></script>
-	<script src="app/scopes/MainCtrl.js"></script>
-	<script src="app/scopes/SearchCtrl.js"></script>
-	<script src="app/scopes/HistoryCtrl.js"></script>
-	<script src="app/filters/legToIconClass.js"></script>
-
-
-	<!-- Angular Material Dependencies -->
-	<script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
-
-	<!-- Angular Material Javascript now available via Google CDN; version 0.6 used here -->
-	<script src="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
+    <script src="libs/bower/less/dist/less.min.js"></script>
+    <script src="libs/bower/angular/angular.js"></script>
+    <script src="libs/bower/lodash/dist/lodash.js"></script>
+    <script src="libs/bower/ngstorage/ngStorage.js"></script>
+    <script src="libs/bower/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/smartFactory.js"></script>
+    <script src="app/scopes/MainCtrl.js"></script>
+    <script src="app/scopes/SearchCtrl.js"></script>
+    <script src="app/scopes/HistoryCtrl.js"></script>
+    <script src="app/filters/legToIconClass.js"></script>
 
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material Dependencies -->
+    <script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
+
+    <!-- Angular Material Javascript now available via Google CDN; version 0.6 used here -->
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
+
+    <script src="app/services/smartFactory.js"></script>
+    <script src="app/services/searchFactory.js"></script>
+
+
+    <script src="app/scopes/MainCtrl.js"></script>
+    <script src="app/scopes/SearchCtrl.js"></script>
+    <script src="app/scopes/HistoryCtrl.js"></script>
+    <script src="app/scopes/ResultCtrl.js"></script>
+
+    <script src="app/filters/legToIconClass.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
-	<header>
-		<div layout="column" layout-fill>
-			<md-toolbar>
-					<div class="md-toolbar-tools">
-						<span>SLappis</span>
-						<span flex></span>
-						<md-button>
-						</md-button>
-				</div>
-			</md-toolbar>
-		</div>  
-	</header>
-<div layout="row">
-	<div flex="10" hide-sm>
-	</div>
-	<div flex>
-		<div ui-view></div>
-		<footer>
-			<a ui-sref="index">Sök</a> 
-			<a ui-sref="index">Realtid</a> 
-			<a ui-sref="index">Störningar</a> 
-		</footer>
-	</div>
-	<div flex="10" hide-sm></div>
-</div>
+    <header>
+        <div layout="column" layout-fill>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <span>SLappis</span>
+                    <span flex></span>
+                    <md-button>
+                    </md-button>
+                </div>
+            </md-toolbar>
+        </div>
+    </header>
+    <div layout="row">
+        <div flex="10" hide-sm>
+        </div>
+        <div flex>
+            <div ui-view></div>
+            <footer>
+                <a ui-sref="index">Sök</a> 
+                <a ui-sref="index">Realtid</a> 
+                <a ui-sref="index">Störningar</a> 
+            </footer>
+        </div>
+        <div flex="10" hide-sm></div>
+    </div>
 
 
-<div ng-include="app/scopes/Search.html">
+    <div ng-include="app/scopes/Search.html">
 
-</div>
+    </div>
 
-<!--     ng-controller="SearchCtrl"-->
+    <!--     ng-controller="SearchCtrl"-->
 </body>
 
 </html>
