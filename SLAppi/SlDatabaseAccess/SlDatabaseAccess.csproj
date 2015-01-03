@@ -50,9 +50,9 @@
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Trip.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201501031602552_M.cs" />
-    <Compile Include="Migrations\201501031602552_M.Designer.cs">
-      <DependentUpon>201501031602552_M.cs</DependentUpon>
+    <Compile Include="Migrations\201501032141576_M1.cs" />
+    <Compile Include="Migrations\201501032141576_M1.Designer.cs">
+      <DependentUpon>201501032141576_M1.cs</DependentUpon>
     </Compile>
     <Compile Include="SlContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -64,8 +64,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501031602552_M.resx">
-      <DependentUpon>201501031602552_M.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201501032141576_M1.resx">
+      <DependentUpon>201501032141576_M1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

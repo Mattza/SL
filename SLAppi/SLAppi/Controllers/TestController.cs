@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using SlDatabaseAccess;
+using SlDatabaseAccess.Entities;
 using SLAppi.Logic;
 
 namespace SLAppi.Controllers
@@ -15,9 +16,9 @@ namespace SLAppi.Controllers
     public class TestController : ApiController
     {
         // GET api/test
-        public void Get()
+        public object Get()
         {
-        //    var test = JsonConvert.DeserializeObject();
+           return new SearchLogic().GetDestinations(new Coordinate{X = 8, Y = 8});
         }
     }
 }

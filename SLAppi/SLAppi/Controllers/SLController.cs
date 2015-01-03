@@ -18,9 +18,7 @@ namespace SLAppi.Controllers
             url = string.Format(url, origin, destination);
             var request = (HttpWebRequest) WebRequest.Create(url);
             var response = (HttpWebResponse ) request.GetResponse();
-            var text = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            var obj = JsonConvert.DeserializeObject(text);
-            return obj;
+            return new StreamReader(response.GetResponseStream()).ReadToEnd().ToJson();
         }
     }
 }
