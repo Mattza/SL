@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
+using System.Web.Mvc;
+using Newtonsoft.Json;
 using SlDatabaseAccess;
 using SLAppi.Logic;
 
@@ -11,13 +14,10 @@ namespace SLAppi.Controllers
 {
     public class TestController : ApiController
     {
-
-
         // GET api/test
-        public List<object> Get()
+        public void Get()
         {
-            new SlContext().Database.CreateIfNotExists();
-            return new SearchLogic().GetSmartSuggestions("bananfisk2000");
+        //    var test = JsonConvert.DeserializeObject();
         }
     }
 }
