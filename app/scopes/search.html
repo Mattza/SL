@@ -1,14 +1,14 @@
 <div class="search-container">
     <form ng-submit="search.doit()">
         <input type="text" placeholder="Från" ng-model="search.from" />
-        <button type="button" ng-click="search.openSmartPicker('from',search.smartStationFrom)">
+        <md-button type="button" ng-click="search.openSmartPicker('from',search.smartStationFrom)" class="pull-right">
             <div class="svg-ic_more_vert_24px svg-ic_more_vert_24px-dims"></div>
-        </button>
+        </md-button>
         <input type="text" placeholder="Till" ng-model="search.to" />
-        <button type="button" ng-click="search.openSmartPicker('to',search.smartStationTo)">
+        <md-button type="button" ng-click="search.openSmartPicker('to',search.smartStationTo)" class="pull-right">
             <div class="svg-ic_more_vert_24px svg-ic_more_vert_24px-dims"></div>
-        </button>
-        <input type="submit" value="Sök" />
+        </md-button>
+        <input type="submit" value="Sök" class="md-raised md-primary"/>
     </form>
 </div>
 
