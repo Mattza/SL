@@ -1,5 +1,5 @@
 var komFramISLApp = angular
-    .module('komFramISLApp', ['ngStorage', 'ui.router'])
+    .module('komFramISLApp', ['ngStorage','ui.router', 'ngTouch'])
 
 .config(function config($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('index');
@@ -13,8 +13,8 @@ var komFramISLApp = angular
         templateUrl: 'app/scopes/Result.html',
     });
 })
+    .run(['positionFactory',
+        function (positionFactory) {
 
-.controller('SearchCtrl', function SearchCtrl() {
-    var search = this;
-    search.taco = 'taco';
-});
+            navigator.geolocation.getCurrentPosition(positionFactory.setPosition);
+    }]);

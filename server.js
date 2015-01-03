@@ -5,8 +5,8 @@ var modRewrite = require('connect-modrewrite');
 
 var serveStatic = require('serve-static');
 var app = connect()
-	.use(serveStatic(__dirname))
 	.use(modRewrite([
-		'^/http://api.localhost:8080/$ http://api.sl.se/ [H]'
+		'http://localhost:8080/api2/ http://api.sl.se/api2/ [H]'
 	]))
+	.use(serveStatic(__dirname))
 	.listen(8080);

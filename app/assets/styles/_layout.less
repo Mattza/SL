@@ -18,37 +18,15 @@ input {
     font-size: 14px;
     line-height: 1.42857143;
 }
+
 header {
-    background-color: #03a9f4;
-    height: 64px;
-    span {
-        color: white;
-        font-size: 20px;
-    }
+    background-color: @sl-blue;
+    color: @sl-white;
 }
+
 .search-container {
     padding: 10px;
     background-color: #EEE;
-}
-.trafic-icon {
-    background-image: url("/app/assets/atlas_v01.png");
-    background-repeat: no-repeat;
-    background-color: transparent;
-    display: inline-block;
-    width: 22px;
-    height: 21px;
-}
-.MET_green {
-    background-position: -15px -14px;
-}
-.MET_red {
-    background-position: -65px -14px;
-}
-.MET_blue {
-    background-position: -116px -14px;
-}
-.BUS_red {
-    background-position: -166px -14px;
 }
 .prev-search-nearby {
     li {
@@ -63,4 +41,26 @@ header {
         border: 1px solid #0073bb;
         display: inline-block;
     }
+}
+.smart-picker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    .content {
+        margin: 10%;
+        background-color: white;
+        width: 80%;
+        height: 80%;
+    }
+}
+.divider {
+	border-color: @sl-grey;
+}
+
+.full-container {
+    height: 100%;
 }
