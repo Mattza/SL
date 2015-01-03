@@ -1,10 +1,10 @@
 komFramISLApp.factory('searchFactory', ['$http',
     function searchFactory($http) {
-        'use strict'
+        'use strict';
 
         var searchResult;
-        var searchFn = function (from, to, successCb, errorCb) {
-            $http.get('http://fredriklowenhamn.se/slappi/api/sl/?origin=' + from + '&destination=' + to)
+        var searchFn = function (from, to, position, successCb, errorCb) {
+            $http.get('http://fredriklowenhamn.se/slappi/api/sl/?origin=' + from + '&destination=' + to + '&coord=' + position)
                 .success(function (data, status, headers, config) {
                     _.each(data.TripList.Trip, function (trip) {
 
