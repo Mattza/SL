@@ -1,0 +1,16 @@
+{
+    "name": "KomFramISL",
+    "version": "0.0.0",
+    "authors": [
+    "Mattza <matknu@kth.se>"
+  ],
+    "description": "Smarter travel organizer for commuters in Stockholm",
+
+    "license": "MIT",
+    "dependencies": {
+        "less": "~2.1.2",
+        "lodash": "~2.4.1",
+        "ngstorage": "~0.3.0"
+    }
+
+}

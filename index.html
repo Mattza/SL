@@ -1,0 +1,65 @@
+<html ng-app="komFramISLApp">
+
+<head>
+    <title>KomFramISL</title>
+    <link rel="stylesheet" type="text/css" href="Libs/css/font-awesome.css" />
+    <link rel="stylesheet/less" type="text/css" href="app.less" />
+
+    <script src="bower_components/less/dist/less.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body ng-controller="MainCtrl">
+    <header>
+        <span>Kom fram i SL</span>
+    </header>
+    <div class="search">
+        <div class="prev-search-nearby">
+            <ul>
+                <li ng-repeat="loc in $storage.loc|limitTo:8" ng-click="extSearch(loc)">
+                    {{loc.from}} -> {{loc.to}}
+                </li>
+            </ul>
+        </div>
+
+        <div class="search-container">
+
+            <form ng-submit="search.doit()">
+                <input type="text" placeholder="Från" ng-model="search.from" />
+                <input type="text" placeholder="Till" ng-model="search.to" />
+                <input type="submit" value="Sök" />
+            </form>
+        </div>
+    </div>
+    <div class="result">
+        <h3 ng-if="isSearching">SÖKER!</h3>
+        <div ng-repeat="trip in trips" class="trip">
+
+            <div>
+                <h3>
+                {{trip.StartTime}} - {{trip.ArrivalTime}}    
+                ({{trip.dur}} min)
+                </h3>
+
+                <p ng-if="trip.LegList.isArray">
+                    <div style="display:inline" ng-repeat="leg in trip.LegList.Leg">
+                        <span ng-if="!leg.samePlace">
+           <span class="trafic-icon {{leg|legToIconClass}}"></span> {{leg.Origin.name}} ->
+                        </span>
+                    </div>
+                    <div style="display:inline">
+                        {{trip.LegList.Leg[trip.LegList.Leg.length-1].Destination.name}}
+                    </div>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    {{trips}}
+</body>
+
+</html>
