@@ -15,4 +15,9 @@ komFramISLApp.controller('HistoryCtrl', ['smartFactory', 'searchFactory', '$stat
 
             searchFactory.searchFn(historyObj.from, historyObj.to, successCb, errorCb);
         }
+
+        // TODO
+        history.remove = function(historyObj) {
+            //Remove this object from the list?
+        }   
 }]);

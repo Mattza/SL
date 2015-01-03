@@ -1,5 +1,5 @@
 var komFramISLApp = angular
-    .module('komFramISLApp', ['ngStorage', 'ui.router'])
+    .module('komFramISLApp', ['ngStorage','ui.router', 'ngTouch'])
 
 .config(function config($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('index');

@@ -33,7 +33,4 @@ komFramISLApp.controller('SearchCtrl', ['searchFactory', 'smartFactory', '$state
         }
         search.smartStationFrom = smartFactory.stationFrom;
         search.smartStationTo = smartFactory.stationTo;
-
-
-
 }]);
