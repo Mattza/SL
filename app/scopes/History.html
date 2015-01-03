@@ -1,5 +1,5 @@
 <ul>
-    <li ng-repeat="hist in history.history">
+    <li ng-repeat="hist in history.history" ng-click="history.search(hist)">
         {{hist.from}} --> {{hist.to}}
     </li>
 </ul>

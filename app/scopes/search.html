@@ -1,13 +1,21 @@
 <div class="search-container">
     <form ng-submit="search.doit()">
         <input type="text" placeholder="Från" ng-model="search.from" />
+        <button type="button" ng-click="search.openSmartPicker('from',search.smartStationFrom)">...</button>
         <input type="text" placeholder="Till" ng-model="search.to" />
+        <button type="button" ng-click="search.openSmartPicker('to',search.smartStationTo)">...</button>
         <input type="submit" value="Sök" />
     </form>
 </div>
 
-
 <div class="result">
-    <h3 ng-if="isSearching">SÖKER!</h3>
+    <h1 ng-if="search.isSearching">SÖKER!</h3>
+</div>
 
+<div class="smart-picker" ng-show="search.showSmartPicker" ng-click="search.cancelSmartPicker()">
+    <div class="content">
+        <div ng-repeat="sugg in search.currentSuggestions">
+            <p ng-bind="sugg" ng-click="search.selectSmartPicker(sugg)"></p>
+        </div>
+    </div>
 </div>
