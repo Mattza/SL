@@ -2,14 +2,13 @@
 
 <head>
     <title>KomFramISL</title>
-    <link rel="stylesheet" type="text/css" href="Libs/css/font-awesome.css" />
-    <link rel="stylesheet/less" type="text/css" href="app.less" />
+    <link rel="stylesheet/less" type="text/css" href="app/styles/app.less" />
 
-    <script src="bower_components/less/dist/less.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/lodash/dist/lodash.js"></script>
-    <script src="bower_components/ngstorage/ngStorage.js"></script>
-    <script src="app.js"></script>
+    <script src="/libs/bower/less/dist/less.min.js"></script>
+    <script src="/libs/bower/angular/angular.js"></script>
+    <script src="/libs/bower/lodash/dist/lodash.js"></script>
+    <script src="/libs/bower/ngstorage/ngStorage.js"></script>
+    <script src="/app/app.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -48,7 +47,7 @@
                 <p ng-if="trip.LegList.isArray">
                     <div style="display:inline" ng-repeat="leg in trip.LegList.Leg">
                         <span ng-if="!leg.samePlace">
-           <span class="trafic-icon {{leg|legToIconClass}}"></span> {{leg.Origin.name}} ->
+           <span class="trafic-icon"></span> {{leg.Origin.name}} ->
                         </span>
                     </div>
                     <div style="display:inline">
