@@ -33,7 +33,7 @@ module.exports = function (grunt) {
             production: {
                 options: {},
                 files: {
-                    'build/app.css': 'app/styles/app.less',
+                    //'build/app.css': 'app/styles/app.less',
                     'build/application.css': 'app/assets/styles/appliaction.less'
                 }
             }
