@@ -15,9 +15,9 @@ namespace SLAppi.Controllers
     public class TestController : ApiController
     {
         // GET api/test
-        public JsonResult Get()
+        public void Get()
         {
-            var test = JsonConvert.DeserializeObject();
+        //    var test = JsonConvert.DeserializeObject();
         }
     }
 }
