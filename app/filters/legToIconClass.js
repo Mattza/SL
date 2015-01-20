@@ -16,6 +16,7 @@ komFramISLApp.filter('legToIconClass', function () {
             TRAIN: 'TRAIN'
 
         };
+
         var ret = temp[leg.type];
         if (angular.isObject(ret)) {
             ret = ret[leg.line];
@@ -23,3 +24,12 @@ komFramISLApp.filter('legToIconClass', function () {
         return ret;
     };
 });
+
+var temp = {
+    7583: {
+        4: {
+
+        }
+    }
+
+}

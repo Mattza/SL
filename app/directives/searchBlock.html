@@ -1,0 +1,5 @@
+<div>
+    <input class="search-text" type="text" placeholder="{{placeholder}}" ng-model="model" />
+
+    <button class="sugg-btn" ng-repeat="sugg in smartStation|orderBy:'counter':true|limitTo:6" ng-click="callbackFn({station:sugg.station})">{{sugg.station}}</button>
+</div>

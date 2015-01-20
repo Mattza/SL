@@ -1,14 +1,7 @@
 <div class="search-container">
     <form ng-submit="search.doit()">
-        <input type="text" placeholder="Från" ng-model="search.from" />
-
-        <md-button type="button" ng-click="search.smartPicker.open('from',search.smartPicker.fromSuggestions)">
-            <div class="svg-ic_more_vert_24px svg-ic_more_vert_24px-dims"></div>
-        </md-button>
-        <input type="text" placeholder="Till" ng-model="search.to" />
-        <md-button type="button" ng-click="search.smartPicker.open('to',search.smartPicker.toSuggestions)">
-            <div class="svg-ic_more_vert_24px svg-ic_more_vert_24px-dims"></div>
-        </md-button>
+        <search-block placeholder="Från" model="search.from" smart-station="search.smartStation.fromSuggestions" callback-fn="search.selectFrom(station)"></search-block>
+        <search-block placeholder="Till" model="search.to" smart-station="search.smartStation.toSuggestions" callback-fn="search.selectTo(station)"></search-block>
         <input type="submit" value="Sök" />
     </form>
 </div>
@@ -18,15 +11,6 @@
     <h1 ng-if="search.waitingPosition">VÄNTAR PÅ POSITION!</h3>
     <h1 ng-if="search.isError">Nu gick något sönder!</h3>
 </div>
-
-<div class="smart-picker" ng-show="search.smartPicker.show" ng-click="search.smartPicker.cancel()">
-    <div class="content">
-        <div ng-repeat="sugg in search.smartPicker.currentSuggestions">
-            <p ng-bind="sugg" ng-click="search.smartPicker.select(sugg)"></p>
-        </div>
-    </div>
-</div>
-
 
 <md-list>
 	<md-item ng-repeat="trip in search.history.list" ng-click="search.history.search(trip)">

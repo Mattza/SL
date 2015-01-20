@@ -1,6 +1,6 @@
 komFramISLApp.factory('positionFactory', ['$q',
     function positionFactory($q) {
-        'use strict'
+        'use strict';
         var position = $q.defer();
 
         var setPosition = function (coord) {
@@ -8,10 +8,10 @@ komFramISLApp.factory('positionFactory', ['$q',
         };
         var getPosition = function () {
             return position;
-        }
+        };
 
         return {
             setPosition: setPosition,
             getPosition: getPosition
-        }
+        };
     }]);

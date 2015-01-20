@@ -2,6 +2,10 @@
 
 <head>
     <title>KomFramISL</title>
+    <script>
+        less = {};
+        less.env = 'development';
+    </script>
     <link rel="stylesheet/less" type="text/css" href="app/assets/styles/application.less" />
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
 
@@ -36,6 +40,8 @@
     <script src="app/scopes/SearchCtrl.js"></script>
     <script src="app/scopes/ResultCtrl.js"></script>
 
+    <script src="app/directives/searchBlock.js"></script>
+
     <script src="app/filters/legToIconClass.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,35 +52,35 @@
     <header>
         <div layout="column">
             <md-toolbar>
-            <div class="md-toolbar-tools">
-                <a ui-sref="index">SLappis</a>
-                <span flex></span>
-                <md-button>
-            </md-button>
-        </div>
+                <div class="md-toolbar-tools">
+                    <a ui-sref="index">SLappis</a>
+                    <span flex></span>
+                    <md-button>
+                    </md-button>
+                </div>
 
-    </md-toolbar>
-</div>
-</header>
-<md-content class="full-container">
-    <div layout="row">
-        <div flex="10" hide-sm>
+            </md-toolbar>
         </div>
-        <div flex>
-            <div ui-view></div>
-            <footer>
-                <a ui-sref="index">Sök</a> 
-                <a ui-sref="index">Realtid</a> 
-                <a ui-sref="index">Störningar</a> 
-            </footer>
+    </header>
+    <md-content class="full-container">
+        <div layout="row">
+            <div flex="10" hide-sm>
+            </div>
+            <div flex>
+                <div ui-view></div>
+                <footer>
+                    <a ui-sref="index">Sök</a> 
+                    <a ui-sref="index">Realtid</a> 
+                    <a ui-sref="index">Störningar</a> 
+                </footer>
+            </div>
+            <div flex="10" hide-sm></div>
         </div>
-        <div flex="10" hide-sm></div>
-    </div>
-    <div ng-include="app/scopes/Search.html">
-</md-content>
+        <div ng-include="app/scopes/Search.html">
+    </md-content>
 
 
-<!--     ng-controller="SearchCtrl"-->
+    <!--     ng-controller="SearchCtrl"-->
 
 </body>
 

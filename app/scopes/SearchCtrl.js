@@ -1,12 +1,16 @@
 komFramISLApp.controller('SearchCtrl', ['searchFactory', 'smartFactory', 'positionFactory', '$state',
     function SearchCtrl(searchFactory, smartFactory, positionFactory, $state) {
         var search = this;
-        search.from = 'Skanstull';
-        search.to = 'TCE';
+        search.from = '';
+        search.to = '';
         search.doit = function () {
             var successCb = function (data) {
                 search.isSearching = false;
                 $state.go('result');
+                smartFactory.atSearch({
+                    from: search.from,
+                    to: search.to
+                });
             };
             var errorCb = function () {
                 search.isError = true;
@@ -14,29 +18,31 @@ komFramISLApp.controller('SearchCtrl', ['searchFactory', 'smartFactory', 'positi
             };
             var position = positionFactory.getPosition();
             search.waitingPosition = true;
-            position.promise.then(function () {
-                searchFactory.searchFn(search.from, search.to, position, successCb, errorCb);
-                search.isSearching = true;
-                search.waitingPosition = false;
-            });
+            //position.promise.then(function () {
+            searchFactory.searchFn({
+                    from: search.from,
+                    to: search.to,
+                    time: undefined
+                },
+                position, successCb, errorCb, false);
+            search.isSearching = true;
+            search.waitingPosition = false;
+            //});
+        };
+        search.selectFrom = function (stationName) {
+            search.from = stationName;
         }
-        search.smartPicker = {
-            show: false,
-            open: function (field, suggestions) {
-                search.smartPicker.show = true;
-                search.smartPicker.current = field;
-                search.smartPicker.currentSuggestions = suggestions;
-            },
-            select: function (stationName) {
-                search[search.smartPicker.current] = stationName;
-                search.smartPicker.show = false;
-            },
+        search.selectTo = function (stationName) {
+            search.to = stationName;
+        }
+        search.smartStation = {
+
             cancel: function () {
                 search.smartPicker.show = false;
             },
             fromSuggestions: smartFactory.stationFrom,
             toSuggestions: smartFactory.stationTo
-        }
+        };
 
         search.history = {
             list: smartFactory.history,
@@ -49,5 +55,5 @@ komFramISLApp.controller('SearchCtrl', ['searchFactory', 'smartFactory', 'positi
             remove: function (historyObj) {
                 _.remove(search.history.list, historyObj);
             }
-        }
+        };
 }]);

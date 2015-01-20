@@ -1,33 +1,39 @@
-komFramISLApp.factory('smartFactory', function smartFactory() {
-    var test = [
-        'Skanstull',
-        'Bondegatan 83',
-        'Kista'
-    ];
-    var test1 = [
-        {
-            from: 'Skanstull',
-            to: 'Bondegatan 33'
-        },
-        {
-            from: 'Skanstull',
-            to: 'Vallentuna'
-        },
-        {
-            from: 'Kista',
-            to: 'Bondegatan 33'
-        },
-        {
-            from: 'Kista',
-            to: 'Vallentuna'
-        },
+komFramISLApp.factory('smartFactory', ['$localStorage',
+        function smartFactory($localStorage) {
+        'use strict';
 
-    ]
+        var test1 = [];
+
+        var update = function (searchStr, storage) {
+            var item = _.find(storage, function (item) {
+                return item.station === searchStr;
+            });
+            if (item) {
+                item.counter++;
+            } else {
+                storage.push({
+                    station: searchStr,
+                    counter: 1
+                });
+            }
+        };
 
 
-    return {
-        stationFrom: test,
-        stationTo: test,
-        history: test1,
-    }
-});
+        var atSearch = function (search) {
+            if (!$localStorage.from) {
+                $localStorage.from = [];
+            }
+            if (!$localStorage.to) {
+                $localStorage.to = [];
+            }
+            update(search.from, $localStorage.from);
+            update(search.to, $localStorage.to);
+        }
+
+        return {
+            stationFrom: $localStorage.from,
+            stationTo: $localStorage.to,
+            atSearch: atSearch,
+            history: test1,
+        };
+}]);
