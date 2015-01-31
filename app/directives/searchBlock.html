@@ -1,5 +1,6 @@
 <div>
-    <input class="search-text" type="text" placeholder="{{placeholder}}" ng-model="model" />
+    <input class="search-text" type="text" placeholder="{{placeholder}}" ng-model="model.str" />
 
-    <button class="sugg-btn" ng-repeat="sugg in smartStation|orderBy:'counter':true|limitTo:6" ng-click="callbackFn({station:sugg.station})">{{sugg.station}}</button>
+    <button type="button" class="sugg-btn" ng-click="callbackFn({station:{str:'Min Position',type:1}})">Min position</button>
+    <button type="button" class="sugg-btn" ng-repeat="sugg in smartStation|orderBy:'counter':true|limitTo:5" ng-click="callbackFn({station:{str:sugg.station,type:0}})">{{sugg.station}}</button>
 </div>

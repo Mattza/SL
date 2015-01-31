@@ -1,9 +1,17 @@
 komFramISLApp.controller('SearchCtrl', ['searchFactory', 'smartFactory', 'positionFactory', '$state',
     function SearchCtrl(searchFactory, smartFactory, positionFactory, $state) {
         var search = this;
-        search.from = '';
-        search.to = '';
-        search.doit = function () {
+        search.from = {
+            str: '',
+            type: 0
+        };
+        search.to = {
+            str: '',
+            type: 0
+        };
+        var position = positionFactory.getPosition();
+
+        var callSearch = function () {
             var successCb = function (data) {
                 search.isSearching = false;
                 $state.go('result');
@@ -16,7 +24,7 @@ komFramISLApp.controller('SearchCtrl', ['searchFactory', 'smartFactory', 'positi
                 search.isError = true;
                 search.isSearching = false;
             };
-            var position = positionFactory.getPosition();
+
             search.waitingPosition = true;
             //position.promise.then(function () {
             searchFactory.searchFn({
@@ -27,13 +35,37 @@ komFramISLApp.controller('SearchCtrl', ['searchFactory', 'smartFactory', 'positi
                 position, successCb, errorCb, false);
             search.isSearching = true;
             search.waitingPosition = false;
-            //});
         };
-        search.selectFrom = function (stationName) {
-            search.from = stationName;
+
+        search.doit = function () {
+
+            if (search.from.type === 1 || search.to.type === 1) {
+                position.promise.then(function (data) {
+                    if (search.from.type === 1) {
+                        search.from.coord = data.coords;
+                    }
+                    if (search.to.type === 1) {
+                        search.to.coord = data.coords;
+                    }
+                    callSearch();
+                });
+            } else {
+                callSearch();
+            }
+        };
+        search.selectFrom = function (dot) {
+            search.from = dot;
+
         }
-        search.selectTo = function (stationName) {
-            search.to = stationName;
+        search.selectTo = function (dot) {
+            search.to = dot;
+            if (search.from.str === '') {
+                search.from = {
+                    type: 1,
+                    str: 'Min position'
+                }
+            }
+            search.doit();
         }
         search.smartStation = {
 

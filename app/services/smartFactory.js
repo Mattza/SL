@@ -26,8 +26,12 @@ komFramISLApp.factory('smartFactory', ['$localStorage',
             if (!$localStorage.to) {
                 $localStorage.to = [];
             }
-            update(search.from, $localStorage.from);
-            update(search.to, $localStorage.to);
+            if (search.from.type === 0) {
+                update(search.from.str, $localStorage.from);
+            }
+            if (search.from.type === 0) {
+                update(search.to.str, $localStorage.to);
+            }
         }
 
         return {
